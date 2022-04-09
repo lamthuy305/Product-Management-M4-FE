@@ -18,7 +18,7 @@ function getAllProduct(page) {
         <td>${products[i].name}</td>
         <td>${products[i].price}</td>
         <td>${products[i].description}</td>
-        <td><img src="http://localhost:8080/image/${products[i].image}" height="140px" width="150px"></td>
+<!--        <td><img src="http://localhost:8080/image/${products[i].image}" height="140px" width="150px"></td>-->
         <td>${products[i].category == null ? '' : products[i].category.name}</td>
         <td><button class="btn btn-primary" data-target="#edit-product" data-toggle="modal"
                                         type="button" onclick="showEditProduct(${products[i].id})"><i class="fa fa-edit"></i></button></td>
@@ -47,17 +47,22 @@ function getAllProduct(page) {
 }
 
 function createNewProduct() {
+    event.preventDefault();
+
     let name = $('#name').val();
     let price = $('#price').val();
     let description = $('#description').val();
-    let image = $('#image');
+    let image = $('#image')[0].files;
     let category = $('#category').val();
-    let product = new FormData;
+    let product = new FormData();
     product.append('name', name);
     product.append('price', price);
     product.append('description', description);
     product.append('category', category);
-    product.append('image', image.prop('files')[0]);
+    let listImage = [];
+    jQuery.each(image, function (i, file) {
+        product.append('image[]', file);
+    });
 
     $.ajax({
         type: 'POST',
@@ -73,8 +78,10 @@ function createNewProduct() {
             getAllProduct();
             showSuccessMessage('Tạo thành công!');
         },
-        error: function () {
-            showErrorMessage('Tạo lỗi!');
+        error: function (e) {
+
+
+            showErrorMessage(e.message);
         }
     })
 }
@@ -109,7 +116,6 @@ function deleteProduct(id) {
         success: function () {
             getAllProduct(0);
             showSuccessMessage('Xóa thành công!');
-            // $('#delete-product').hide();
         },
         error: function () {
             showErrorMessage('Xóa lỗi');

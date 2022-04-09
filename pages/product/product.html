@@ -47,7 +47,8 @@
                 <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a class="nav-link" href="/product-management-font-end/pages/auth/login.html" onclick="logout()">Logout</a>
+                <a class="nav-link" href="/product-management-font-end/pages/auth/login.html"
+                   onclick="logout()">Logout</a>
             </li>
         </ul>
 
@@ -87,7 +88,8 @@
                     <a class="dropdown-item" href="#">
                         <!-- Message Start -->
                         <div class="media">
-                            <img alt="User Avatar" class="img-size-50 mr-3 img-circle" src="../../dist/img/user1-128x128.jpg">
+                            <img alt="User Avatar" class="img-size-50 mr-3 img-circle"
+                                 src="../../dist/img/user1-128x128.jpg">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Brad Diesel
@@ -103,7 +105,8 @@
                     <a class="dropdown-item" href="#">
                         <!-- Message Start -->
                         <div class="media">
-                            <img alt="User Avatar" class="img-size-50 img-circle mr-3" src="../../dist/img/user8-128x128.jpg">
+                            <img alt="User Avatar" class="img-size-50 img-circle mr-3"
+                                 src="../../dist/img/user8-128x128.jpg">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     John Pierce
@@ -119,7 +122,8 @@
                     <a class="dropdown-item" href="#">
                         <!-- Message Start -->
                         <div class="media">
-                            <img alt="User Avatar" class="img-size-50 img-circle mr-3" src="../../dist/img/user3-128x128.jpg">
+                            <img alt="User Avatar" class="img-size-50 img-circle mr-3"
+                                 src="../../dist/img/user3-128x128.jpg">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Nora Silvester
@@ -275,7 +279,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="/product-management-font-end/pages/product/product.html">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a
+                                    href="/product-management-font-end/pages/product/product.html">Trang chủ</a></li>
                             <li class="breadcrumb-item active">Quản lý sản phẩm</li>
                         </ol>
                     </div>
@@ -306,7 +311,7 @@
                                         <th>Tên sản phẩm</th>
                                         <th>Giá sản phẩm</th>
                                         <th>Mô tả sản phẩm</th>
-                                        <th>Ảnh sản phẩm</th>
+                                        <!--                                        <th>Ảnh sản phẩm</th>-->
                                         <th>Category</th>
                                         <th colspan="2"></th>
                                     </tr>
@@ -331,6 +336,7 @@
     </div>
 
     <div class="modal fade" id="edit-product">
+
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -354,7 +360,7 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Ảnh sản phẩm</label>
-                        <input class="form-control" id="editImage" type="file">
+                        <input class="form-control" id="editImage" type="file" multiple="multiple">
                     </div>
 
                     <div class="form-group">
@@ -374,44 +380,47 @@
 
     <div class="modal fade" id="create-product">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Tạo mới sản phẩm</h4>
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name">Tên sản phẩm</label>
-                        <input class="form-control" id="name" placeholder="Nhập tên sản phẩm" type="text">
+            <form enctype="multipart/form-data">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tạo mới sản phẩm</h4>
+                        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="form-group">
-                        <label for="price">Giá sản phẩm</label>
-                        <input class="form-control" id="price" placeholder="Nhập giá sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Mô tả sản phẩm</label>
-                        <input class="form-control" id="description" placeholder="Nhập mô tả sản phẩm" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="image">Ảnh sản phẩm</label>
-                        <input class="form-control" id="image" type="file">
-                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">Tên sản phẩm</label>
+                            <input class="form-control" id="name" placeholder="Nhập tên sản phẩm" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Giá sản phẩm</label>
+                            <input class="form-control" id="price" placeholder="Nhập giá sản phẩm" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Mô tả sản phẩm</label>
+                            <input class="form-control" id="description" placeholder="Nhập mô tả sản phẩm" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Ảnh sản phẩm</label>
+                            <input class="form-control" id="image" type="file" multiple="multiple">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="category">Category</label>
-                        <select class="form-control" id="category"></select>
-                    </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select class="form-control" id="category"></select>
+                        </div>
 
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
+                        <button class="btn btn-primary" onclick="createNewProduct()" type="button" aria-label="Close"
+                                class="close" data-dismiss="modal">Tạo mới
+                        </button>
+                    </div>
                 </div>
-                <div class="modal-footer justify-content-between">
-                    <button class="btn btn-secondary" data-dismiss="modal" type="button">Đóng</button>
-                    <button class="btn btn-primary" onclick="createNewProduct()" type="button" aria-label="Close"
-                            class="close" data-dismiss="modal">Tạo mới
-                    </button>
-                </div>
-            </div>
+
+            </form>
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
